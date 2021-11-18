@@ -4,7 +4,8 @@ var connectedUser;
 var yourConn;
 
 //connecting to our signaling server 
-var conn = new WebSocket('ws://localhost:9090');
+// var conn = new WebSocket('ws://localhost:9090');
+var conn = new WebSocket('wss://testiqra.ga/websocket/stream/rtc/:9090');
 
 conn.onopen = function () {
     console.log("Connected to the signaling server");
@@ -111,13 +112,13 @@ function handleLogin(success) {
         //********************** 
 
         //using Google public stun server 
-        // var configuration = {
-        //     "iceServers": [{ "urls": "stun:stun2.1.google.com:19302" }]
-        // };
-
         var configuration = {
-            "iceServers": []
+            "iceServers": [{ "urls": "stun:stun2.1.google.com:19302" }]
         };
+
+        // var configuration = {
+        //     "iceServers": []
+        // };
 
 
         yourConn = new RTCPeerConnection(configuration);

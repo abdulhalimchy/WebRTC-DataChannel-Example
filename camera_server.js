@@ -184,13 +184,13 @@ function sendTo(connection, message) {
 // :::::::::::::::::::::::::::: WebRTC Related ::::::::::::::::::::::::
 function createNewRTCPeer(ws_conn, clientId){
     //using Google public stun server
-    // let configuration = {
-    //     "iceServers": [{ "urls": "stun:stun2.1.google.com:19302" }]
-    // };
-
     let configuration = {
-        "iceServers": []
+        "iceServers": [{ "urls": "stun:stun2.1.google.com:19302" }]
     };
+
+    // let configuration = {
+    //     "iceServers": []
+    // };
 
     let newConn = new WebRTC.RTCPeerConnection(configuration);
 
