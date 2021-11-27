@@ -234,7 +234,7 @@ function sendOffer() {
 
 //when we got an answer from a remote user 
 function handleAnswer(answer) {
-    console.Log("Got Answer: ", answer);
+    console.log("Got Answer: ", answer);
     yourConn.setRemoteDescription(new RTCSessionDescription(answer));
 };
 
