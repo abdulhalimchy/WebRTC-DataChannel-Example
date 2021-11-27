@@ -7,3 +7,4 @@ video_index.html
 node_modules/
 index2.html
 server2.js
+*.log

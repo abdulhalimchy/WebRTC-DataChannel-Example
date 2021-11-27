@@ -2,6 +2,8 @@
 const WebSocketServer = require('ws').Server; //require our websocket library 
 const WebRTC = require('wrtc') //require WebRTC library
 const http = require('http')
+const fs = require('fs')
+const logger = new console.Console(fs.createWriteStream('/home/salman/camera_stream/log_server.log'));
 
 const token = "abc";
 
@@ -319,6 +321,7 @@ async function sendImage2Client(channel)
     //   logger.log(log_data)
     }
   } catch (error) {
+      logger.log(error)
     // console.log(error)
   }
 }
