@@ -218,7 +218,7 @@ function createNewRTCPeer(ws_conn, clientId){
 
     
     // creating data channel
-    let dataChannel = newConn.createDataChannel("channel", {ordered: false, negotiated: true, maxRetransmits: 1, id: clientId});
+    let dataChannel = newConn.createDataChannel("channel", {ordered: false, negotiated: true, maxRetransmits: 0, id: clientId});
     
     console.log(dataChannel)
     console.log("Data Channel State: ", dataChannel.readyState)
@@ -309,7 +309,7 @@ async function sendImage2Client(channel)
     while(true)
     {
 
-      await sleep(20)
+      await sleep(200)
     //   log_data = "Before >> Sent to client - Frame #" + frame_cnt + "  " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "." + date.getMilliseconds()
     //   logger.log(log_data)
 
