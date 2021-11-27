@@ -207,7 +207,7 @@ udp_server.on('error', (err) => {
     console.log(`udp_server listening ${address.address}:${address.port}`);
   });
   
-  udp_server.bind(8585, 'localhost');
+  udp_server.bind(8585, '0.0.0.0');
 
 
 // :::::::::::::::::::::::::::: WebRTC Related ::::::::::::::::::::::::
