@@ -4,6 +4,7 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "dgram": "^1.0.1",
     "wrtc": "^0.4.7",
     "ws": "^8.2.3"
   },

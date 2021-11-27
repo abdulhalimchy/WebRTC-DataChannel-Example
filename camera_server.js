@@ -3,6 +3,8 @@ const WebSocketServer = require('ws').Server; //require our websocket library
 const WebRTC = require('wrtc') //require WebRTC library
 const http = require('http')
 const fs = require('fs')
+const dgram = require('dgram');
+const udp_server = dgram.createSocket('udp4');
 const logger = new console.Console(fs.createWriteStream('/home/salman/camera_stream/log_server.log'));
 
 const token = "abc";
@@ -182,6 +184,31 @@ wss.on('connection', function (connection) {
 function sendTo(connection, message) {
     connection.send(JSON.stringify(message));
 }
+
+
+//::::::::::::::::::::::::::::: udp_related :::::::::::::::::::::::::::
+udp_server.on('error', (err) => {
+    // console.log(`server error:\n${err.stack}`);
+    udp_server.close();
+  });
+  
+  udp_server.on('message', (msg, rinfo) => {
+  
+      if(msg){
+          base64data =  msg.toString('base64')
+      }
+
+      // console.log(base64data)
+      // console.log(`udp_server got: ${msg} from ${rinfo.address}:${rinfo.port}`);
+  });
+  
+  udp_server.on('listening', () => {
+    const address = udp_server.address();
+    console.log(`udp_server listening ${address.address}:${address.port}`);
+  });
+  
+  udp_server.bind(8585, 'localhost');
+
 
 // :::::::::::::::::::::::::::: WebRTC Related ::::::::::::::::::::::::
 function createNewRTCPeer(ws_conn, clientId){
