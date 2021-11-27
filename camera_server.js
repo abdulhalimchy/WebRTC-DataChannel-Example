@@ -309,7 +309,7 @@ async function sendImage2Client(channel)
     while(true)
     {
 
-      await sleep(200)
+      await sleep(30)
     //   log_data = "Before >> Sent to client - Frame #" + frame_cnt + "  " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + "." + date.getMilliseconds()
     //   logger.log(log_data)
 
