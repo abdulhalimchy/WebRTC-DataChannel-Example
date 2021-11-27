@@ -185,7 +185,11 @@ function sendTo(connection, message) {
 function createNewRTCPeer(ws_conn, clientId){
     //using Google public stun server
     let configuration = {
-        "iceServers": [{ "urls": "stun:stun2.1.google.com:19302" }]
+        "iceServers": [{
+            urls: "turn:turn.inverseai.com:3478", 
+            username: "guest",
+            credential: "pass"
+          }]
     };
 
     // let configuration = {

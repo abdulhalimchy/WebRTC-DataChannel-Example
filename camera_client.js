@@ -113,7 +113,11 @@ function handleLogin(success) {
 
         //using Google public stun server 
         var configuration = {
-            "iceServers": [{ "urls": "stun:stun2.1.google.com:19302" }]
+            "iceServers": [{
+                urls: "turn:turn.inverseai.com:3478", 
+                username: "guest",
+                credential: "pass"
+              }]
         };
 
         // var configuration = {
