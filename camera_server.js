@@ -215,7 +215,7 @@ function createNewRTCPeer(ws_conn, clientId){
     let dataChannel = newConn.createDataChannel("channel", {ordered: false, negotiated: true, maxRetransmits: 1, id: clientId});
     
     console.log(dataChannel)
-    console.log(dataChannel.readyState)
+    console.log("Data Channel State: ", dataChannel.readyState)
 
     dataChannel.onopen = function(event) {
         sendImage2Client(dataChannel)

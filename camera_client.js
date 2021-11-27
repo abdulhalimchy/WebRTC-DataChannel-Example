@@ -141,7 +141,7 @@ function handleLogin(success) {
 
         
         // creating data channel 
-        dataChannel = yourConn.createDataChannel("channel", {ordered: false, negotiated: true, maxRetransmits: 1, id: clientId});
+        dataChannel = yourConn.createDataChannel("channel", {ordered: false, negotiated: true, maxRetransmits: 0, id: clientId});
         
         console.log(dataChannel)
         console.log(dataChannel.readyState)
